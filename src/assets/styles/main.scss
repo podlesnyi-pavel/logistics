@@ -1,0 +1,20 @@
+@import '@/assets/styles/normilize.scss';
+
+// #app {}
+
+.container {
+  width: 100%;
+  max-width: 1728px;
+  margin: 0 auto;
+}
+
+.inner-wrapper {
+  display: flex;
+  min-height: 850px;
+  border: 2px solid $dark-grey;
+}
+
+.page {
+  flex-grow: 1;
+  background-color: $main-background;
+}

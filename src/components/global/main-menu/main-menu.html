@@ -1,0 +1,23 @@
+<nav class="main-menu">
+  <h2>Меню</h2>
+
+  <ul class="main-menu__list">
+    <li class="main-menu__item-list">
+      <router-link
+        :to="{ name: routes.maintenance.name }"
+        class="main-menu__link-list"
+      >
+        Maintenance
+      </router-link>
+    </li>
+
+    <li class="main-menu__item-list">
+      <router-link
+        :to="{ name: routes.test.name }"
+        class="main-menu__link-list"
+      >
+        Test
+      </router-link>
+    </li>
+  </ul>
+</nav>

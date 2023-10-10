@@ -3,6 +3,7 @@
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Version node
+
 18.18.0
 
 ## Project Setup

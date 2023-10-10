@@ -1,18 +1,23 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
+import mainMenu from '@/components/global/main-menu/main-menu.vue';
+
 export default defineComponent({
-  data() {
-    return {
-      test: 'dwadaw',
-    };
+  components: {
+    mainMenu,
   },
 });
 </script>
 
 <template>
-  <main>
-    dwadwa
-    <h1></h1>
-  </main>
+  <div class="container">
+    <div class="inner-wrapper">
+      <main-menu />
+
+      <div class="page">
+        <router-view />
+      </div>
+    </div>
+  </div>
 </template>

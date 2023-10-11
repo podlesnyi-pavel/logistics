@@ -11,7 +11,7 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-  base: '/maintenance/general/',
+  base: '/maintenance/general',
   css: {
     devSourcemap: true,
     preprocessorOptions: {

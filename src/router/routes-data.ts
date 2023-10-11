@@ -1,24 +1,29 @@
+const routesNames = {
+  maintenance: 'maintenance',
+  test: 'test',
+};
+
 const routesData = {
   maintenance: {
-    path: '/',
+    path: `/${routesNames.maintenance}`,
     name: 'Проведение ТО и мелкий ремонт',
     children: {
       general: {
-        path: '/general',
+        path: `/${routesNames.maintenance}/general`,
         name: 'Общее',
       },
       goods: {
-        path: '/goods',
+        path: `/${routesNames.maintenance}/goods`,
         name: 'Товары',
       },
       expenses: {
-        path: '/expenses',
+        path: `/${routesNames.maintenance}/expenses`,
         name: 'Доп. расходы',
       },
     },
   },
   test: {
-    path: '/test',
+    path: `/${routesNames.test}`,
     name: 'Test page',
   },
 };

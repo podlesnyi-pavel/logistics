@@ -1,6 +1,11 @@
 @import '@/assets/styles/normilize.scss';
 
-// #app {}
+#app {
+  font-family: MyriadPro, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: $black;
+}
 
 .container {
   width: 100%;
@@ -10,11 +15,11 @@
 
 .inner-wrapper {
   display: flex;
-  min-height: 850px;
-  border: 2px solid $dark-grey;
+  min-height: 100vh;
+  border: 1px solid $blue-grey;
 }
 
 .page {
   flex-grow: 1;
-  background-color: $main-background;
+  background-color: $background-main;
 }

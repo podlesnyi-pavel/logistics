@@ -7,23 +7,14 @@
   color: $white;
   background-image: radial-gradient(circle at 29% 0, $black, #1c2734 103%);
 
-  // &__list {}
-
-  &__item-list {
-    cursor: pointer;
-
+  .list-item {
     &:hover {
       color: $hover-main-menu;
       transition: color 0.2s ;
     }
-  
-    &:not(:first-child) {
-      margin-top: 10px;
-    }
   }
 
-  &__link-list {
-    color: inherit;
-    text-transform: capitalize;
+  .list-item__link {
+    padding: 5px 0;
   }
 }

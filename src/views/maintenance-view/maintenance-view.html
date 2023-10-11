@@ -1,1 +1,10 @@
-<div>maintenance page</div>
+<div class="maintenance-page">
+  <header>
+    <page-title :title="routes.maintenance.name" />
+  </header>
+
+  <main>
+    <app-submenu :listNames="listNamesSubmenu" />
+    <router-view />
+  </main>
+</div>

@@ -1,9 +1,9 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'mainMenuItem',
+  name: 'pageTitle',
   props: {
-    routerName: {
+    title: {
       type: String,
       required: true,
     },

@@ -1,11 +1,15 @@
 import { defineComponent } from 'vue';
 import appListItem from '@/components/global/app-list-item/app-list-item.vue';
-import routesDataMixin from '@/mixins/routes-data-mixin';
 
 export default defineComponent({
-  name: 'mainMenu',
+  name: 'appSubmenu',
   components: {
     appListItem,
   },
-  mixins: [routesDataMixin],
+  props: {
+    listNames: {
+      type: Array,
+      required: true,
+    },
+  },
 });

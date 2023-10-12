@@ -12,7 +12,7 @@ const router = createRouter({
       path: routesData.maintenance.path,
       name: routesData.maintenance.name,
       component: maintenanceView,
-      redirect: routesData.maintenance.children.general.path,
+      redirect: routesData.maintenance.children.goods.path,
       children: [
         {
           ...routesData.maintenance.children.general,

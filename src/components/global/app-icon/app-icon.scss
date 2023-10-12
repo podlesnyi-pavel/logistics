@@ -1,7 +1,14 @@
 // other styles -> @/assets/styles/font-icons.scss
 
 .app-icon {
+  &--rotate {
+      transform: rotate(180deg);
+  }
+
   &--size {
+    &--xxs {
+      font-size: 9px;
+    }
     &--xs {
       font-size: 11px;
     }

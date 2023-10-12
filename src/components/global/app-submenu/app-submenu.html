@@ -3,5 +3,19 @@
     <app-list-item v-for="name in listNames" :key="name" :routeName="name" />
   </ul>
 
-  <app-icon icon="gear" />
+  <settings-columns />
 </nav>
+
+<!-- <nav class="submenu submenu--mt-20">
+  <ul class="submenu__list">
+    <app-list-item
+      v-for="(name, index) in listNames"
+      :key="name"
+      :routeName="name"
+      :data-index="index"
+      draggable="true"
+    />
+  </ul>
+
+  <app-icon icon="gear" />
+</nav> -->

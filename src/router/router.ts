@@ -20,7 +20,6 @@ const router = createRouter({
         },
         {
           ...routesData.maintenance.children.goods,
-          // component: maintenanceChild,
           component: maintenanceGoodsView,
         },
         {

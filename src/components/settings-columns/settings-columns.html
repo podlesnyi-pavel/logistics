@@ -1,0 +1,31 @@
+<div class="settings-columns">
+  <app-icon icon="gear" @click="openMenu" />
+
+  <ul v-if="isShowMainList" class="settings-columns__list">
+    <li
+      v-for="item in mainListItems"
+      class="settings-columns__item"
+      @click="chooseCurrentItem(item)"
+    >
+      <span class="settings-columns__text">{{ item.title }}</span>
+      <app-icon icon="right_arrow" size="xxs" />
+    </li>
+  </ul>
+
+  <ul v-if="currentItem" class="settings-columns__list">
+    <li
+      :class="[
+        'settings-columns__item',
+        { 'settings-columns__item--jc-left': currentItem },
+      ]"
+      @click="resetcurrentItem"
+    >
+      <app-icon icon="right_arrow" size="xxs" class="app-icon--rotate" />
+      <span class="settings-columns__text--title">{{ currentItem.title }}</span>
+    </li>
+
+    <li class="settings-columns__item">
+      <span class="settings-columns__text">test</span>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,29 @@
+// other styles -> @/assets/styles/font-icons.scss
+
+.app-icon {
+  &--size {
+    &--xs {
+      font-size: 11px;
+    }
+
+    &--s {
+      font-size: 13px;
+    }
+
+    &--m {
+      font-size: 15px;
+    }
+
+    &--l {
+      font-size: 17px;
+    }
+
+    &--xl {
+      font-size: 19px;
+    }
+
+    &--xxl {
+      font-size: 21px;
+    }
+  }
+}

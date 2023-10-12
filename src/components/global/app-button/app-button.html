@@ -1,0 +1,11 @@
+<button
+  :class="[
+    'app-button',
+    `app-button--bg-color--${bgColor}`,
+    `app-button--color--${color}`,
+  ]"
+  :type="type"
+>
+  <app-icon v-if="icon" :icon="icon" :size="sizeIcon" />
+  <span class="app-button__text">{{ text }}</span>
+</button>

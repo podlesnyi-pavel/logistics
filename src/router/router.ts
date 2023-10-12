@@ -3,6 +3,7 @@ import routesData from '@/router/routes-data';
 import maintenanceView from '@/views/maintenance-view/maintenance-view.vue';
 import TestView from '@/views/TestView.vue';
 import maintenanceChild from '@/views/maintenance-view/children/maintenance-child-view.vue';
+import maintenanceGoodsView from '@/views/maintenance-view/children/maintenance-goods-view/maintenance-goods-view.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -19,7 +20,8 @@ const router = createRouter({
         },
         {
           ...routesData.maintenance.children.goods,
-          component: maintenanceChild,
+          // component: maintenanceChild,
+          component: maintenanceGoodsView,
         },
         {
           ...routesData.maintenance.children.expenses,

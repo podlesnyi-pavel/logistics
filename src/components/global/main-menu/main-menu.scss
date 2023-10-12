@@ -10,7 +10,7 @@
   .list-item {
     &:hover {
       color: $hover-main-menu;
-      transition: color 0.2s ;
+      transition: color $transition-default-time ;
     }
   }
 

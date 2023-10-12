@@ -1,0 +1,10 @@
+.maintenance-goods {
+  &__action-line {
+    margin-top: 20px;
+    padding: 20px 25px 20px 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px 0 rgba($black, 0.07);
+    border: solid 1px $border-block;
+    background-color: $white;
+  }
+}

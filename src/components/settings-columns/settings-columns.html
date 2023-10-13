@@ -63,6 +63,10 @@
           :item="item"
           icon="menu"
           class="settings-columns__item--drag-item"
+          :[EDataAttr.index]="index"
+          draggable="true"
+          @changeDragStartIndex="changeDragStartIndex"
+          @dragDrop="swapItems"
         />
       </template>
     </template>

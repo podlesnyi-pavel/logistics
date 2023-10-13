@@ -13,6 +13,7 @@ export default defineComponent({
   provide() {
     return {
       changeIsShowItemListSubmenu: this.changeIsShowItemListSubmenu,
+      swapItemsListSubmenu: this.swapItemsListSubmenu,
     };
   },
   data() {
@@ -37,6 +38,13 @@ export default defineComponent({
   methods: {
     changeIsShowItemListSubmenu(index: number): void {
       this.listSubmenu[index].isShow = !this.listSubmenu[index].isShow;
+    },
+    swapItemsListSubmenu(fromIndex: number, toIndex: number): void {
+      const itemOne = this.listSubmenu[fromIndex];
+      const itemTwo = this.listSubmenu[toIndex];
+
+      this.listSubmenu[fromIndex] = itemTwo;
+      this.listSubmenu[toIndex] = itemOne;
     },
   },
 });

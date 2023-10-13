@@ -2,6 +2,7 @@ import { defineComponent } from 'vue';
 import type { IMainListItem } from '@/components/settings-columns/interfaces/main-list-item-interface';
 import { EMainListItemId } from '@/components/settings-columns/enums/main-list-item-id';
 import listItemTextIcon from '@/components/settings-columns/list-item-text-icon/list-item-text-icon.vue';
+import { EDataAttr } from '@/enums/data-attr-enum';
 
 export default defineComponent({
   name: 'settingsColumns',
@@ -13,9 +14,10 @@ export default defineComponent({
       type: Array,
     },
   },
-  inject: ['changeIsShowItemListSubmenu'],
+  inject: ['changeIsShowItemListSubmenu', 'swapItemsListSubmenu'],
   data() {
     return {
+      EDataAttr: EDataAttr,
       isOpenMenu: false,
       mainListItems: [
         {
@@ -29,6 +31,7 @@ export default defineComponent({
       ],
       currentItem: null as IMainListItem | null,
       sizeIcon: 'xxs',
+      dragStartIndex: null as null | Number,
     };
   },
   computed: {
@@ -51,6 +54,13 @@ export default defineComponent({
     },
     resetcurrentItem(): void {
       this.currentItem = null;
+    },
+    changeDragStartIndex(index: number): void {
+      this.dragStartIndex = index;
+    },
+    swapItems(dragEndIndex: number): void {
+      // @ts-ignore
+      this.swapItemsListSubmenu(this.dragStartIndex, dragEndIndex);
     },
   },
 });

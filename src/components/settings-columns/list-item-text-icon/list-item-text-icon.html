@@ -1,4 +1,11 @@
-<li class="settings-columns__item">
+<li
+  class="settings-columns__item"
+  @dragstart="dragStart"
+  @dragover.prevent
+  @dragenter="dragEnter"
+  @dragleave="dragLeave"
+  @drop="dragDrop"
+>
   <span class="settings-columns__text">{{ item.title }}</span>
   <app-icon :icon="icon" :size="sizeIcon" />
 </li>

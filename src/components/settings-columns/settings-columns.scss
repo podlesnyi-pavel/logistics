@@ -50,12 +50,17 @@
     }
 
     &--drag-item {
-      cursor: default;
+      cursor: grab;
 
       .app-icon {
-        cursor: grab;
+        cursor: inherit;
       }
-    } 
+    }
+
+    &--dragover {
+      color: $white;
+      background-color: $dark-blue;
+    }
   }
 
   &__text {

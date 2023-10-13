@@ -4,10 +4,11 @@
   <ul v-if="isOpenMenu" class="settings-columns__list">
     <template v-if="isShowMainList">
       <list-item-text-icon
-        :items="mainListItems"
-        keyItem="id"
+        v-for="item in mainListItems"
+        :key="item.title"
+        :item="item"
         icon="right_arrow"
-        @actionClick="chooseCurrentItem"
+        @click="chooseCurrentItem(item)"
       />
     </template>
 
@@ -57,10 +58,11 @@
 
       <template v-else>
         <list-item-text-icon
-          :items="settingsList"
-          keyItem="name"
+          v-for="(item, index) in settingsList"
+          :key="item.title"
+          :item="item"
           icon="menu"
-          customClass="drag-item"
+          class="settings-columns__item--drag-item"
         />
       </template>
     </template>

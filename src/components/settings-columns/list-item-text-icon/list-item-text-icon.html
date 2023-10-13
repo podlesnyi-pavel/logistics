@@ -1,12 +1,4 @@
-<li
-  v-for="item in items"
-  :key="keyItem"
-  :class="[
-    'settings-columns__item',
-    `settings-columns__item--${customClass}`,
-  ]"
-  @click="actionClick(item)"
->
+<li class="settings-columns__item">
   <span class="settings-columns__text">{{ item.title }}</span>
   <app-icon :icon="icon" :size="sizeIcon" />
 </li>

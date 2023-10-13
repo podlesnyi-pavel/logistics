@@ -1,10 +1,10 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'appListItem',
+  name: 'submenuItemList',
   props: {
-    routeName: {
-      type: String,
+    item: {
+      type: Object,
       required: true,
     },
   },

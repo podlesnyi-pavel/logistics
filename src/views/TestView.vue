@@ -9,12 +9,16 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import pageTitle from '@/components/global/page-title/page-title.vue';
-import routesDataMixin from '@/mixins/routes-data-mixin';
+import routesData from '@/router/routes-data';
 
 export default defineComponent({
   components: {
     pageTitle,
   },
-  mixins: [routesDataMixin],
+  data() {
+    return {
+      routes: routesData,
+    };
+  },
 });
 </script>

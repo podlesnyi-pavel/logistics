@@ -7,14 +7,14 @@
   color: $white;
   background-image: radial-gradient(circle at 29% 0, $black, #1c2734 103%);
 
-  .list-item {
+  .router-item-list {
     &:hover {
       color: $hover-main-menu;
       transition: color $transition-default-time ;
     }
   }
 
-  .list-item__link {
+  .router-item-list__link {
     padding: 5px 0;
   }
 }

@@ -1,11 +1,15 @@
 import { defineComponent } from 'vue';
-import appListItem from '@/components/global/app-list-item/app-list-item.vue';
-import routesDataMixin from '@/mixins/routes-data-mixin';
+import routesData from '@/router/routes-data';
+import routerItemList from '@/components/global/router-item-list/router-item-list.vue';
 
 export default defineComponent({
   name: 'mainMenu',
   components: {
-    appListItem,
+    routerItemList,
   },
-  mixins: [routesDataMixin],
+  data() {
+    return {
+      routes: routesData,
+    };
+  },
 });

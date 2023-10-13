@@ -1,31 +1,68 @@
 <div class="settings-columns">
   <app-icon icon="gear" @click="openMenu" />
 
-  <ul v-if="isShowMainList" class="settings-columns__list">
-    <li
-      v-for="item in mainListItems"
-      class="settings-columns__item"
-      @click="chooseCurrentItem(item)"
-    >
-      <span class="settings-columns__text">{{ item.title }}</span>
-      <app-icon icon="right_arrow" size="xxs" />
-    </li>
-  </ul>
+  <ul v-if="isOpenMenu" class="settings-columns__list">
+    <template v-if="isShowMainList">
+      <list-item-text-icon
+        :items="mainListItems"
+        keyItem="id"
+        icon="right_arrow"
+        @actionClick="chooseCurrentItem"
+      />
+    </template>
 
-  <ul v-if="currentItem" class="settings-columns__list">
-    <li
-      :class="[
+    <template v-if="currentItem">
+      <li
+        :class="[
         'settings-columns__item',
         { 'settings-columns__item--jc-left': currentItem },
       ]"
-      @click="resetcurrentItem"
-    >
-      <app-icon icon="right_arrow" size="xxs" class="app-icon--rotate" />
-      <span class="settings-columns__text--title">{{ currentItem.title }}</span>
-    </li>
+        @click="resetcurrentItem"
+      >
+        <app-icon
+          icon="right_arrow"
+          :size="sizeIcon"
+          class="app-icon--rotate"
+        />
 
-    <li class="settings-columns__item">
-      <span class="settings-columns__text">test</span>
-    </li>
+        <span class="settings-columns__text--title">
+          {{ currentItem.title }}
+        </span>
+      </li>
+
+      <template v-if="isVisibilityCurrentItem">
+        <li
+          v-for="(item, index) in settingsList"
+          :key="item.title"
+          :class="[
+            'settings-columns__item',
+            'settings-columns__item--jc-left',
+            'settings-columns__item--padding-0'
+          ]"
+        >
+          <label class="settings-columns__label">
+            <input
+              class="settings-columns__checkbox"
+              type="checkbox"
+              :checked="item.isShow"
+              @change="changeIsShowItemListSubmenu(index)"
+            />
+
+            <span class="settings-columns__text settings-columns__text--mr-0">
+              {{ item.title }}
+            </span>
+          </label>
+        </li>
+      </template>
+
+      <template v-else>
+        <list-item-text-icon
+          :items="settingsList"
+          keyItem="name"
+          icon="menu"
+          customClass="drag-item"
+        />
+      </template>
+    </template>
   </ul>
 </div>

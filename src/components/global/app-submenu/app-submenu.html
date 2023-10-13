@@ -1,9 +1,13 @@
 <nav class="submenu submenu--mt-20">
   <ul class="submenu__list">
-    <app-list-item v-for="name in listNames" :key="name" :routeName="name" />
+    <submenu-Item-list
+      v-for="item in listItems"
+      :key="item.title"
+      :item="item"
+    />
   </ul>
 
-  <settings-columns />
+  <settings-columns :settingsList="listItems" />
 </nav>
 
 <!-- <nav class="submenu submenu--mt-20">

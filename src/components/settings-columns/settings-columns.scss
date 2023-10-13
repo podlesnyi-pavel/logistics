@@ -1,4 +1,6 @@
 .settings-columns {
+  $padding-item: 7px 10px;
+
   position: relative;
   display: flex;
   flex-direction: column;
@@ -42,6 +44,18 @@
     &--jc-left {
       justify-content: flex-start;
     }
+
+    &--padding-0 {
+      padding: 0;;
+    }
+
+    &--drag-item {
+      cursor: default;
+
+      .app-icon {
+        cursor: grab;
+      }
+    } 
   }
 
   &__text {
@@ -51,5 +65,18 @@
       margin-right: 0;
       margin-left: 9px;
     }
+
+    &--mr-0 {
+      margin-right: 0;
+    }
+  }
+
+  &__checkbox {
+    margin-right: 9px;
+  }
+
+  &__label {
+    flex-grow: 1;
+    padding: $padding-item;
   }
 }

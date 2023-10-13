@@ -1,6 +1,6 @@
-<li class="list-item">
-  <router-link :to="{ name: routeName }" class="list-item__link">
-    {{ routeName }}
+<li v-if="item.isShow" class="submenu-item-list">
+  <router-link :to="{ name: item.title }" class="submenu-item-list__link">
+    {{ item.title }}
   </router-link>
 </li>
 

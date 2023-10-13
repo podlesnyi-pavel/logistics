@@ -1,15 +1,15 @@
 import { defineComponent } from 'vue';
-import appListItem from '@/components/global/app-list-item/app-list-item.vue';
+import submenuItemList from '@/components/global/app-submenu/submenu-litem-list/submenu-litem-list.vue';
 import settingsColumns from '@/components/settings-columns/settings-columns.vue';
 
 export default defineComponent({
   name: 'appSubmenu',
   components: {
-    appListItem,
+    submenuItemList,
     settingsColumns,
   },
   props: {
-    listNames: {
+    listItems: {
       type: Array,
       required: true,
     },

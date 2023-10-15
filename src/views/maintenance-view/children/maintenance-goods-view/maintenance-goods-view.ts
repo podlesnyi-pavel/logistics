@@ -76,10 +76,10 @@ export default defineComponent({
         isShow: true,
         title: currentLastChild.id + 1,
         nameOne: '',
-        price: '',
-        quantity: '',
+        price: '' as unknown as number,
+        quantity: '' as unknown as number,
         name: '',
-        total: '',
+        total: '' as unknown as number,
       };
 
       this.dataTable.push(newRow);

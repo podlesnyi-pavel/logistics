@@ -1,5 +1,100 @@
 <div class="maintenance-goods">
   <div class="maintenance-goods__action-line">
-    <app-button text="Добавить строку" icon="pointer" />
+    <app-button text="Добавить строку" icon="pointer" @click="addRow" />
+  </div>
+
+  <div class="table">
+    <div class="table__header">
+      <span class="table__save-button"> Сохранить изменения </span>
+      <!-- <settings-columns :settingsList="dataTable" /> -->
+      Настройки
+    </div>
+
+    <table class="table__table">
+      <thead>
+        <tr class="table__table-row">
+          <th class="table__table-th"></th>
+          <th class="table__table-th"></th>
+          <th class="table__table-th">Наименование еденицы</th>
+          <th class="table__table-th">Цена</th>
+          <th class="table__table-th">Кол-во</th>
+          <th class="table__table-th">Название товара</th>
+          <th class="table__table-th">Итого</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr v-for="row in dataTable" class="table__table-row">
+          <td class="table__table-td">
+            <app-icon icon="menu" size="xs-plus" />
+            {{ row.id }}
+          </td>
+
+          <td class="table__table-td table__table-td--remove-cell">
+            <div class="remove-cell" @click="openRemoveCell">
+              <app-icon icon="settings" size="xs-plus" />
+
+              <app-button
+                class="remove-cell__button app-button--delete-button"
+                text="Удалить"
+                bgColor="white"
+                color="red"
+              />
+            </div>
+          </td>
+
+          <td class="table__table-td">
+            <select :value="row.nameOne">
+              <option v-for="option in options">{{ option }}</option>
+            </select>
+          </td>
+
+          <td class="table__table-td">
+            <input :value="row.price" />
+          </td>
+
+          <td class="table__table-td">
+            <input :value="row.quantity" />
+          </td>
+
+          <td class="table__table-td">
+            <select :value="row.name">
+              <option v-for="option in optionsNames">{{ option }}</option>
+            </select>
+          </td>
+
+          <td class="table__table-td">
+            <input :value="row.total" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="table__total table-total">
+      <div class="table-total__block">
+        <div class="table-total__item">
+          <span class="table-total__title">Сумма:</span>
+          <span>152 212 руб</span>
+        </div>
+
+        <div class="table-total__item">
+          <span class="table-total__title">Кол-во:</span>
+          <span>24 шт</span>
+        </div>
+
+        <div class="table-total__item">
+          <span class="table-total__title">Общий вес:</span>
+          <span>2 322 кг</span>
+        </div>
+      </div>
+
+      <div class="table-total__block table-total__total">
+        <span class="table-total__title table-total__title--color--black"
+          >Общая сумма:
+        </span>
+
+        <span class="table-total__total-sum">152 212 руб</span>
+      </div>
+    </div>
   </div>
 </div>

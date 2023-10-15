@@ -8,6 +8,7 @@ $grey-1: #fbfcfd;
 $grey-2: #eef3f8;
 $blue: #2f8cff;
 $dark-blue: #1253a2;
+$red: #ae0a0a;
 
 $background-main: $grey-1;
 
@@ -20,3 +21,5 @@ $hover-main-menu: $dark-blue;
 $hover-list-item: $grey-2;
 
 $transition-default-time: 0.2s;
+
+$default-shadow-border: 0 0 3px 0 $black, inset 0 1px 2px 0 rgba($white, 0.5)

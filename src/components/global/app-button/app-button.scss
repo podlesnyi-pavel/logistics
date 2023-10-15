@@ -1,7 +1,8 @@
 .app-button {
   display: flex;
   align-items: center;
-  padding: 10px 15px 10px 10px;
+  min-width: 146px;
+  padding: 10px;
   border-radius: 5px;
   font-size: 14px;
   cursor: pointer;
@@ -11,9 +12,23 @@
     background-color: $dark-blue;
   }
 
+  &--delete-button {
+    box-shadow: $default-shadow-border;
+
+    &:hover {
+      background-color: $red;
+      color: $white;
+      box-shadow: 0 0 3px 0 transparent,
+    }
+  }
+
   &--color {
     &--white {
       color: $white;
+    }
+
+    &--red {
+      color: $red;
     }
   }
 
@@ -21,9 +36,13 @@
     &--blue {
       background-color: $blue;
     }
+
+    &--white {
+      background-color: $white;
+    }
   }
 
-  &__text {
+  .app-icon + .app-button__text {
     margin-left: 7px;
   }
 }

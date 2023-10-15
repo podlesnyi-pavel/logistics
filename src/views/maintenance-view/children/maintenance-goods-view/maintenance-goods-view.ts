@@ -1,10 +1,12 @@
 import { defineComponent } from 'vue';
 import { ETypeButton } from '@/components/global/app-button/enums/type-button-enum';
 import settingsColumns from '@/components/settings-columns/settings-columns.vue';
+import goodsTable from '@/components/goods-table/goods-table.vue';
 
 export default defineComponent({
   components: {
     settingsColumns,
+    goodsTable,
   },
   data() {
     return {
@@ -51,19 +53,6 @@ export default defineComponent({
           total: 1231,
         },
       ],
-      options: [
-        'Мраморный щебень фр. 2-5 мм, 25кг',
-        'Мраморный щебень фр. 2-5 мм, 25кг (белый)',
-        'Мраморный щебень фр. 2-5 мм, 25кг (вайт)',
-        'Мраморный щебень фр. 2-5 мм, 25кг, возврат',
-        'Мраморный щебень фр. 2-5 мм, 1т',
-      ],
-      optionsNames: [
-        'Мраморный щебень',
-        'Мраморный щебень (белый)',
-        'Мраморный щебень (вайт)',
-        'Мраморный щебень (возврат)',
-      ],
     };
   },
   methods: {
@@ -84,6 +73,5 @@ export default defineComponent({
 
       this.dataTable.push(newRow);
     },
-    openRemoveCell() {},
   },
 });

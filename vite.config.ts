@@ -16,7 +16,10 @@ export default defineConfig({
     devSourcemap: true,
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "./src/assets/styles/variables";`,
+        additionalData: `
+          @import "@/assets/styles/variables";
+          @import "@/assets/styles/placeholders/tables.scss";
+        `,
       },
     },
   },

@@ -19,24 +19,13 @@
     </thead>
 
     <tbody>
-      <tr v-for="row in rows" class="table__table-row">
+      <tr v-for="(row, index) in rows" :key="row.id" class="table__table-row">
         <td class="table__table-td">
           <app-icon icon="menu" size="xs-plus" />
           {{ row.id }}
         </td>
 
-        <td class="table__table-td table__table-td--remove-cell">
-          <div class="remove-cell" @click="openRemoveCell">
-            <app-icon icon="settings" size="xs-plus" />
-
-            <app-button
-              class="remove-cell__button app-button--delete-button"
-              text="Удалить"
-              bgColor="white"
-              color="red"
-            />
-          </div>
-        </td>
+        <remove-cell @removeRow="removeRow" />
 
         <td class="table__table-td">
           <select :value="row.nameOne">

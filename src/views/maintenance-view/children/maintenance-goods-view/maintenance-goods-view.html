@@ -3,5 +3,5 @@
     <app-button text="Добавить строку" icon="pointer" @click="addRow" />
   </div>
 
-  <goods-table :rows="dataTable" />
+  <goods-table :rows="dataTable" @removeRow="removeRow" />
 </div>

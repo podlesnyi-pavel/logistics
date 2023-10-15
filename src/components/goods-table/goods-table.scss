@@ -35,16 +35,12 @@
     border-collapse: collapse;
   }
 
-  &__table-row {
-
-  }
+  &__table-row {}
 
   &__table-th,
   &__table-td {
-    width: auto;
+    @extend %th-td-base;
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 
     select, input {
       width: 100%;
@@ -109,37 +105,5 @@
 
   &__total-sum {
     font-weight: 600;
-  }
-}
-
-.remove-cell {
-  position: relative;
-  padding: 5px 10px;
-  cursor: pointer;
-
-  &__button {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    z-index: 1;
-    transform: translateY(calc(100% + 1px));
-
-    &.app-button {
-      display: none;
-    }
-  }
-
-  &--open {
-    &__button {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      z-index: 1;
-      transform: translateY(calc(100% + 1px));
-  
-      &.app-button {
-        display: flex;
-      }
-    }
   }
 }

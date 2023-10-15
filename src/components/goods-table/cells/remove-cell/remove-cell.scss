@@ -1,0 +1,14 @@
+.remove-cell {
+  @extend %th-td-base;
+  position: relative;
+  text-align: center;
+  overflow: visible;
+
+  &__button {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    transform: translateY(calc(100% + 1px));
+  }
+}

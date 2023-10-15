@@ -73,5 +73,8 @@ export default defineComponent({
 
       this.dataTable.push(newRow);
     },
+    removeRow(index: number) {
+      this.dataTable.splice(index, 1);
+    },
   },
 });

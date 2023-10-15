@@ -1,0 +1,12 @@
+<td class="remove-cell">
+  <app-icon icon="settings" size="xs-plus" @click="toggleButton" />
+
+  <app-button
+    v-if="isOpenButton"
+    class="remove-cell__button app-button--delete-button"
+    text="Удалить"
+    bgColor="white"
+    color="red"
+    @click="removeRow"
+  />
+</td>

@@ -1,9 +1,4 @@
 .remove-cell {
-  @extend %th-td-base;
-  position: relative;
-  text-align: center;
-  overflow: visible;
-
   &__button {
     position: absolute;
     left: 0;

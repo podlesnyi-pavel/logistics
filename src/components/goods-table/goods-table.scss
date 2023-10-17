@@ -41,6 +41,7 @@
   &__table-td {
     @extend %th-td-base;
     overflow: hidden;
+    cursor: grab;
 
     select, input {
       width: 100%;
@@ -57,13 +58,23 @@
     padding: 5px 10px;
 
     &--remove-cell {
-      padding: 0;
+      @extend %th-td-base;
+      position: relative;
+      text-align: center;
       overflow: visible;
     }
   }
 
   &__total {
     margin: 20px 15px 0 0;
+  }
+}
+
+.dragging-row {
+  border: dashed 2px $blue-grey;
+
+  td {
+    opacity: 0;
   }
 }
 

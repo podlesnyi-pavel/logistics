@@ -1,54 +1,66 @@
 <div class="table">
-  <div class="table__header">
+  <header class="table__header">
     <span class="table__save-button"> Сохранить изменения </span>
-    <!-- <settings-columns :settingsList="dataTable" /> -->
+    <!-- <settings-columns :settingsList="rowsTable" /> -->
     Настройки
-  </div>
+  </header>
 
   <table class="table__table">
     <thead>
       <tr class="table__table-row">
-        <th class="table__table-th"></th>
-        <th class="table__table-th"></th>
-        <th class="table__table-th">Наименование еденицы</th>
-        <th class="table__table-th">Цена</th>
-        <th class="table__table-th">Кол-во</th>
-        <th class="table__table-th">Название товара</th>
-        <th class="table__table-th">Итого</th>
+        <th
+          v-for="(header, index) in headers"
+          class="table__table-th"
+          :data-header-index="index"
+          draggable="true"
+        >
+          {{ header.value }}
+        </th>
       </tr>
     </thead>
 
     <tbody>
-      <tr v-for="(row, index) in rows" :key="row.id" class="table__table-row">
-        <td class="table__table-td">
-          <app-icon icon="menu" size="xs-plus" />
-          {{ row.id }}
-        </td>
+      <tr
+        v-for="(row, indexRow) in rows"
+        :key="row.id"
+        class="table__table-row table__table-row--tbody"
+        :data-row-index="indexRow"
+        draggable="true"
+        @dragstart="dragStart"
+        @dragenter="dragEnter"
+        @dragend="dragEnd"
+        ref="tbodyRow"
+      >
+        <td
+          v-for="(column, indexColumn) in row.columns"
+          :class="[
+            'table__table-td',
+            { 'table__table-td--remove-cell':  column.id === 2},
+          ]"
+          :data-column-index="indexColumn"
+        >
+          <template v-if="column.id === 1">
+            <app-icon icon="menu" size="xs-plus" cursor="grab" />
+            {{ indexRow + 1 }}
+          </template>
 
-        <remove-cell @removeRow="removeRow" />
+          <remove-cell
+            v-if="column.id === 2"
+            @removeRow="removeRow(indexRow)"
+          />
 
-        <td class="table__table-td">
-          <select :value="row.nameOne">
+          <select v-if="column.id === 3" :value="column.value">
             <option v-for="option in optionsNameOne">{{ option }}</option>
           </select>
-        </td>
 
-        <td class="table__table-td">
-          <input :value="row.price" />
-        </td>
+          <input v-if="column.id === 4" :value="column.value" />
+          <input v-if="column.id === 5" :value="column.value" />
 
-        <td class="table__table-td">
-          <input :value="row.quantity" />
-        </td>
-
-        <td class="table__table-td">
-          <select :value="row.name">
+          <select v-if="column.id === 6" :value="column.value">
             <option v-for="option in optionsNames">{{ option }}</option>
           </select>
-        </td>
 
-        <td class="table__table-td">
-          <input :value="row.total" />
+          <input v-if="column.id === 7" :value="column.value" />
         </td>
       </tr>
     </tbody>
@@ -58,7 +70,7 @@
     <div class="table-total__block">
       <div class="table-total__item">
         <span class="table-total__title">Сумма:</span>
-        <span>152 212 руб</span>
+        <span>$ 152 212</span>
       </div>
 
       <div class="table-total__item">
@@ -77,7 +89,7 @@
         >Общая сумма:
       </span>
 
-      <span class="table-total__total-sum">152 212 руб</span>
+      <span class="table-total__total-sum">$ 152 212</span>
     </div>
   </div>
 </div>

@@ -38,4 +38,10 @@
       font-size: 21px;
     }
   }
+
+  &--cursor {
+    &--grab {
+      cursor: grab;
+    }
+  }
 }

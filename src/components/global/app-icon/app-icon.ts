@@ -10,5 +10,8 @@ export default defineComponent({
       type: String,
       default: 'm',
     },
+    cursor: {
+      type: String,
+    },
   },
 });

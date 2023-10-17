@@ -27,6 +27,7 @@
         :data-row-index="indexRow"
         draggable="true"
         @dragstart="dragStart"
+        @dragover.prevent
         @dragenter="dragEnter"
         @dragend="dragEnd"
         ref="tbodyRow"

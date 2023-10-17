@@ -9,6 +9,8 @@
   border: solid 1px $border-block;
   background-color: $white;
 
+  .table__table-row {}
+
   &__header {
     display: flex;
     justify-content: flex-end;
@@ -35,7 +37,46 @@
     border-collapse: collapse;
   }
 
-  &__table-row {}
+  &__table-row {
+    &:not(:first-child) {
+      border-top: 2px dashed transparent;
+    }
+
+    .table__table-td {
+      &:first-child {
+        border-left: 2px dashed transparent;
+      }
+  
+      &:last-child {
+        border-right: 2px dashed transparent;
+      }
+    }
+
+    &:last-child {
+      .table__table-td {
+        border-bottom: 2px dashed transparent;
+      }
+    }
+
+    &.dragging-row {
+      .table__table-td {
+        border-top: 2px dashed $blue-grey;
+        border-bottom: 2px dashed $blue-grey;
+    
+        &:first-child {
+          border-left: 2px dashed $blue-grey;
+        }
+    
+        &:last-child {
+          border-right: 2px dashed $blue-grey;
+        }
+      }
+    
+      td {
+        opacity: 0;
+      }
+    }
+  }
 
   &__table-th,
   &__table-td {
@@ -67,14 +108,6 @@
 
   &__total {
     margin: 20px 15px 0 0;
-  }
-}
-
-.dragging-row {
-  border: dashed 2px $blue-grey;
-
-  td {
-    opacity: 0;
   }
 }
 

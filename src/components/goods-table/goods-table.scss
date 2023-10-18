@@ -1,3 +1,9 @@
+%th-td-base {
+  width: auto;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .table {
   display: flex;
   flex-direction: column;
@@ -91,8 +97,13 @@
 
   &__table-th {
     padding: 14px 10px;
-    border: 1px solid $border-block;
+    border-top: 1px solid $border-block;
+    border-bottom: 1px solid $border-block;
     text-align: left;
+
+    &.dragging-th {
+      background-color: $blue-grey;
+    }
   }
 
   &__table-td {
@@ -103,6 +114,10 @@
       position: relative;
       text-align: center;
       overflow: visible;
+    }
+
+    &.dragging-th {
+      background-color: $blue-grey;
     }
   }
 

@@ -13,6 +13,12 @@
           class="table__table-th"
           :data-header-index="index"
           draggable="true"
+          @dragstart="dragStartHeader"
+          @dragover="dragOverPrevent(isDraggingRow)"
+          @dragenter="dragEnterHeader"
+          @dragleave="dragLeaveHeader"
+          @dragend="dragEndHeader"
+          @drop="dragDropHeader"
         >
           {{ header.value }}
         </th>
@@ -26,11 +32,10 @@
         class="table__table-row table__table-row--tbody"
         :data-row-index="indexRow"
         draggable="true"
-        @dragstart="dragStart"
-        @dragover.prevent
-        @dragenter="dragEnter"
-        @dragend="dragEnd"
-        ref="tbodyRow"
+        @dragstart="dragStartRow"
+        @dragover="dragOverPrevent(isDraggingHeader)"
+        @dragenter="dragEnterRow"
+        @dragend="dragEndRow"
       >
         <td
           v-for="(column, indexColumn) in row.columns"
@@ -39,6 +44,7 @@
             { 'table__table-td--remove-cell':  column.id === 2},
           ]"
           :data-column-index="indexColumn"
+          ref="tableTd"
         >
           <template v-if="column.id === 1">
             <app-icon icon="menu" size="xs-plus" cursor="grab" />

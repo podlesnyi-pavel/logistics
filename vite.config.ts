@@ -18,7 +18,6 @@ export default defineConfig({
       scss: {
         additionalData: `
           @import "@/assets/styles/variables";
-          @import "@/assets/styles/placeholders/tables.scss";
         `,
       },
     },

@@ -167,32 +167,40 @@ export default defineComponent({
   },
   methods: {
     addRow(): void {
-      const currentLastChild = this.rowsTable[this.rowsTable.length - 1];
-      const columns = [];
+      const currentLastChildId = this.rowsTable[this.rowsTable.length - 1].id;
 
-      for (let i = 1; i <= 7; i++) {
-        columns.push({
-          id: i,
+      const columns = [...this.rowsTable[0].columns].map((column) => {
+        return {
+          ...column,
           value: '',
-          isShow: true,
-        });
-      }
+        };
+      });
 
       const newRow = {
-        id: currentLastChild.id + 1,
+        id: currentLastChildId + 1,
         columns: columns,
       };
 
       this.rowsTable.push(newRow);
     },
-    removeRow(index: number) {
+    removeRow(index: number): void {
       this.rowsTable.splice(index, 1);
     },
-    swapRows(startIndex: number, endIndex: number) {
-      const startItem = this.rowsTable[startIndex];
+    swapItem(array: any, startIndex: number, endIndex: number) {
+      const startItem = array[startIndex];
 
-      this.rowsTable.splice(startIndex, 1);
-      this.rowsTable.splice(endIndex, 0, startItem);
+      array.splice(startIndex, 1);
+      array.splice(endIndex, 0, startItem);
+    },
+    swapRows(startIndex: number, endIndex: number): void {
+      this.swapItem(this.rowsTable, startIndex, endIndex);
+    },
+    swapHeaders(startIndex: number, endIndex: number): void {
+      this.swapItem(this.headersTable, startIndex, endIndex);
+
+      this.rowsTable.forEach((row) => {
+        this.swapItem(row.columns, startIndex, endIndex);
+      });
     },
   },
 });

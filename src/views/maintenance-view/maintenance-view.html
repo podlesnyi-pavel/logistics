@@ -4,7 +4,11 @@
   </header>
 
   <main>
-    <app-submenu :listItems="listSubmenu" />
+    <app-submenu
+      :listItems="listSubmenu"
+      @swapItemsSettingsColumns="swapItemsListSubmenu"
+      @changeIsShowItemListSubmenu="changeIsShowItemListSubmenu"
+    />
     <router-view />
   </main>
 </div>

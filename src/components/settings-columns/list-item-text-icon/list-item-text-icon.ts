@@ -3,6 +3,7 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'listItemTextIcon',
+  emits: ['changeDragStartIndex', 'dragDrop'],
   props: {
     item: {
       type: Object,

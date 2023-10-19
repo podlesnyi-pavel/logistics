@@ -1,16 +1,22 @@
 import { defineComponent } from 'vue';
 import { optionsNameOne } from '@/data/options/options-name-one';
 import { optionsNames } from '@/data/options/options-names';
+import settingsColumns from '@/components/settings-columns/settings-columns.vue';
 import removeCell from '@/components/goods-table/cells/remove-cell/remove-cell.vue';
 
 export default defineComponent({
   name: 'goodsTable',
   components: {
     removeCell,
+    settingsColumns,
   },
-  emits: ['removeRow', 'swapRows', 'swapHeaders'],
+  emits: ['removeRow', 'swapRows', 'swapHeaders', 'changeVisibleColumns'],
   props: {
     headers: {
+      type: Array,
+      required: true,
+    },
+    visibleHeaders: {
       type: Array,
       required: true,
     },
@@ -30,10 +36,16 @@ export default defineComponent({
     };
   },
   methods: {
+    changeVisibleColumns(index: number): void {
+      this.$emit('changeVisibleColumns', index);
+    },
+    swapItemsSettingsColumns(dragStartIndex: number, dragEndIndex: number) {
+      this.$emit('swapHeaders', dragStartIndex, dragEndIndex);
+    },
     removeRow(index: number) {
       this.$emit('removeRow', index);
     },
-    dragOverPrevent(event: DragEvent, typeCell) {
+    dragOverPrevent(event: DragEvent, typeCell: boolean) {
       if (!typeCell) {
         event.preventDefault;
       }
@@ -48,8 +60,8 @@ export default defineComponent({
 
         currentTh?.classList.add('dragging-th');
 
-        this.$refs.tableTd
-          .filter((item) => {
+        (this.$refs.tableTd as HTMLElement[])
+          .filter((item: HTMLElement) => {
             return item.dataset.columnIndex === currentDragIndex;
           })
           .forEach((td) => td.classList.add('dragging-th'));
@@ -77,8 +89,8 @@ export default defineComponent({
 
       currentTh?.classList.remove('dragging-th');
 
-      this.$refs.tableTd
-        .filter((item) => {
+      (this.$refs.tableTd as HTMLElement[])
+        .filter((item: HTMLElement) => {
           return item.dataset.columnIndex === currentDragIndex;
         })
         .forEach((td) => td.classList.remove('dragging-th'));
@@ -93,8 +105,8 @@ export default defineComponent({
 
       currentTh?.classList.remove('dragging-th');
 
-      this.$refs.tableTd
-        .filter((item) => {
+      (this.$refs.tableTd as HTMLElement[])
+        .filter((item: HTMLElement) => {
           return item.dataset.columnIndex === currentDragIndex;
         })
         .forEach((td) => td.classList.remove('dragging-th'));

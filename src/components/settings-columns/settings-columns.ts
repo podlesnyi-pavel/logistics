@@ -9,12 +9,12 @@ export default defineComponent({
   components: {
     listItemTextIcon,
   },
+  emits: ['swapItems', 'changeIsShowItem'],
   props: {
     settingsList: {
       type: Array,
     },
   },
-  inject: ['changeIsShowItemListSubmenu', 'swapItemsListSubmenu'],
   data() {
     return {
       EDataAttr: EDataAttr,
@@ -58,9 +58,11 @@ export default defineComponent({
     changeDragStartIndex(index: number): void {
       this.dragStartIndex = index;
     },
+    changeIsShowItem(index: number): void {
+      this.$emit('changeIsShowItem', index);
+    },
     swapItems(dragEndIndex: number): void {
-      // @ts-ignore
-      this.swapItemsListSubmenu(this.dragStartIndex, dragEndIndex);
+      this.$emit('swapItems', this.dragStartIndex, dragEndIndex);
     },
   },
 });

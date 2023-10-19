@@ -5,9 +5,11 @@
 
   <goods-table
     :headers="headersTable"
-    :rows="rowsTable"
+    :visibleHeaders="visibleHeaders"
+    :rows="visibleRows"
     @removeRow="removeRow"
     @swapHeaders="swapHeaders"
     @swapRows="swapRows"
+    @changeVisibleColumns="changeVisibleColumns"
   />
 </div>

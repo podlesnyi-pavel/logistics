@@ -8,10 +8,19 @@ export default defineComponent({
     submenuItemList,
     settingsColumns,
   },
+  emits: ['changeIsShowItemListSubmenu', 'swapItemsSettingsColumns'],
   props: {
     listItems: {
       type: Array,
       required: true,
+    },
+  },
+  methods: {
+    changeIsShowItemListSubmenu(index: number) {
+      this.$emit('changeIsShowItemListSubmenu', index);
+    },
+    swapItemsSettingsColumns(dragStartIndex: number, dragEndIndex: number) {
+      this.$emit('swapItemsSettingsColumns', dragStartIndex, dragEndIndex);
     },
   },
 });

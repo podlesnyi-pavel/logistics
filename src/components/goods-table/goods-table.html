@@ -1,15 +1,18 @@
 <div class="table">
   <header class="table__header">
     <span class="table__save-button"> Сохранить изменения </span>
-    <!-- <settings-columns :settingsList="rowsTable" /> -->
-    Настройки
+    <settings-columns
+      :settingsList="headers"
+      @changeIsShowItem="changeVisibleColumns"
+      @swapItems="swapItemsSettingsColumns"
+    />
   </header>
 
   <table class="table__table">
     <thead>
       <tr class="table__table-row">
         <th
-          v-for="(header, index) in headers"
+          v-for="(header, index) in visibleHeaders"
           class="table__table-th"
           :data-header-index="index"
           draggable="true"

@@ -7,5 +7,9 @@
     />
   </ul>
 
-  <settings-columns :settingsList="listItems" />
+  <settings-columns
+    :settingsList="listItems"
+    @swapItems="swapItemsSettingsColumns"
+    @changeIsShowItem="changeIsShowItemListSubmenu"
+  />
 </nav>

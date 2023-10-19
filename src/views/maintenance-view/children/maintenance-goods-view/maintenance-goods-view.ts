@@ -1,11 +1,9 @@
 import { defineComponent } from 'vue';
 import { ETypeButton } from '@/components/global/app-button/enums/type-button-enum';
-import settingsColumns from '@/components/settings-columns/settings-columns.vue';
 import goodsTable from '@/components/goods-table/goods-table.vue';
 
 export default defineComponent({
   components: {
-    settingsColumns,
     goodsTable,
   },
   data() {
@@ -15,30 +13,44 @@ export default defineComponent({
         {
           id: 1,
           value: '',
+          title: '№',
+          isShow: true,
         },
         {
           id: 2,
           value: '',
+          title: 'Настройки',
+          isShow: true,
         },
         {
           id: 3,
           value: 'Наименование еденицы',
+          title: 'Наименование еденицы',
+          isShow: true,
         },
         {
           id: 4,
           value: 'Цена',
+          title: 'Цена',
+          isShow: true,
         },
         {
           id: 5,
           value: 'Кол-во',
+          title: 'Кол-во',
+          isShow: true,
         },
         {
           id: 6,
           value: 'Название товара',
+          title: 'Название товара',
+          isShow: true,
         },
         {
           id: 7,
           value: 'Итого',
+          title: 'Итого',
+          isShow: true,
         },
       ],
       rowsTable: [
@@ -165,6 +177,19 @@ export default defineComponent({
       ],
     };
   },
+  computed: {
+    visibleHeaders() {
+      return this.headersTable.filter((header) => header.isShow);
+    },
+    visibleRows() {
+      return this.rowsTable.map((row) => {
+        return {
+          ...row,
+          columns: row.columns.filter((column) => column.isShow),
+        };
+      });
+    },
+  },
   methods: {
     addRow(): void {
       const currentLastChildId = this.rowsTable[this.rowsTable.length - 1].id;
@@ -186,20 +211,27 @@ export default defineComponent({
     removeRow(index: number): void {
       this.rowsTable.splice(index, 1);
     },
-    swapItem(array: any, startIndex: number, endIndex: number) {
+    swapItems(array: any, startIndex: number, endIndex: number) {
       const startItem = array[startIndex];
 
       array.splice(startIndex, 1);
       array.splice(endIndex, 0, startItem);
     },
     swapRows(startIndex: number, endIndex: number): void {
-      this.swapItem(this.rowsTable, startIndex, endIndex);
+      this.swapItems(this.rowsTable, startIndex, endIndex);
     },
     swapHeaders(startIndex: number, endIndex: number): void {
-      this.swapItem(this.headersTable, startIndex, endIndex);
+      this.swapItems(this.headersTable, startIndex, endIndex);
 
       this.rowsTable.forEach((row) => {
-        this.swapItem(row.columns, startIndex, endIndex);
+        this.swapItems(row.columns, startIndex, endIndex);
+      });
+    },
+    changeVisibleColumns(index: number) {
+      this.headersTable[index].isShow = !this.headersTable[index].isShow;
+
+      this.rowsTable.forEach((row) => {
+        row.columns[index].isShow = !row.columns[index].isShow;
       });
     },
   },

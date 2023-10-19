@@ -9,13 +9,6 @@ export default defineComponent({
     pageTitle,
     appSubmenu,
   },
-  // done just for demonstration
-  provide() {
-    return {
-      changeIsShowItemListSubmenu: this.changeIsShowItemListSubmenu,
-      swapItemsListSubmenu: this.swapItemsListSubmenu,
-    };
-  },
   data() {
     return {
       routes: routesData,
